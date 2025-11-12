@@ -114,6 +114,29 @@ function updateButtons() {
     document.getElementById('nextBtn').disabled = currentIndex === flashcards.length - 1;
 }
 
+// NEW: Mobile touch setup for better scrolling
+function setupMobileTouch() {
+    const flashcard = document.getElementById('flashcard');
+    const scrollableAreas = document.querySelectorAll('.scrollable-shloka');
+    
+    // Prevent card flip when scrolling
+    scrollableAreas.forEach(area => {
+        area.addEventListener('touchstart', function(e) {
+            e.stopPropagation();
+        });
+        
+        area.addEventListener('touchmove', function(e) {
+            e.stopPropagation();
+        });
+    });
+    
+    // Enable proper touch scrolling
+    scrollableAreas.forEach(area => {
+        area.style.overflowY = 'auto';
+        area.style.webkitOverflowScrolling = 'touch';
+    });
+}
+
 function initializeFlashcards() {
     const storagePrefix = getStoragePrefix();
     
@@ -143,6 +166,9 @@ function initializeFlashcards() {
         viewedCards: viewedCards.size
     });
 
+    // Setup mobile touch support
+    setupMobileTouch();
+    
     loadCard();
     
     // Keyboard navigation
