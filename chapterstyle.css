@@ -365,9 +365,7 @@ button:disabled {
     background: rgba(255, 255, 255, 0.1);
 }
 
-/* === MOBILE OPTIMIZATIONS - FIXED === */
-
-/* Mobile: Single line stats - SPACE SAVING */
+/* === OPTIMIZED MOBILE SPACE SAVING === */
 @media (max-width: 768px) {
     .container {
         max-width: 100%;
@@ -379,15 +377,29 @@ button:disabled {
         padding: 5px;
     }
     
-    h1 {
-        font-size: 1.4rem;
+    /* Hide chapter title - biggest space saver */
+    h1#chapterTitle {
+        display: none;
     }
     
+    /* Keep chapter info but make it compact */
+    .chapter-info {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+        line-height: 1.3;
+    }
+    
+    /* Hide progress bar - good space saver, less crucial on mobile */
+    .progress-bar {
+        display: none;
+    }
+    
+    /* Compact but readable stats */
     .stats {
         flex-direction: row;
         justify-content: space-between;
-        padding: 10px 15px;
-        margin: 10px 0;
+        padding: 10px 12px;
+        margin: 8px 0 15px 0;
         flex-wrap: nowrap;
     }
     
@@ -410,10 +422,18 @@ button:disabled {
         text-overflow: ellipsis;
     }
     
+    /* Slightly smaller back link */
+    .back-link {
+        padding: 8px 14px;
+        font-size: 0.85rem;
+        min-height: 40px;
+        margin-top: 5px;
+    }
+    
     /* FIXED: Mobile flashcard height and scrolling */
     .flashcard-container {
-        height: 500px; /* Increased height for mobile */
-        min-height: 500px;
+        height: 480px; /* Increased height for mobile */
+        min-height: 480px;
     }
     
     .flashcard-front, .flashcard-back {
@@ -466,11 +486,6 @@ button:disabled {
     .btn-shuffle, .btn-reset {
         flex: 1 1 45%;
     }
-    
-    .back-link {
-        padding: 10px 16px;
-        font-size: 0.9rem;
-    }
 }
 
 @media (max-width: 480px) {
@@ -479,14 +494,24 @@ button:disabled {
         border-radius: 12px;
     }
     
-    h1 {
-        font-size: 1.3rem;
-        margin-bottom: 6px;
+    /* Extreme space saving for small phones */
+    h1#chapterTitle {
+        display: none;
+    }
+    
+    .progress-bar {
+        display: none;
+    }
+    
+    /* Ultra-compact header */
+    .chapter-info {
+        font-size: 0.85rem;
+        margin-bottom: 5px;
     }
     
     .stats {
-        padding: 8px 12px;
-        margin: 8px 0;
+        padding: 8px 10px;
+        margin: 5px 0 12px 0;
     }
     
     .stat-value {
@@ -497,10 +522,16 @@ button:disabled {
         font-size: 0.65rem;
     }
     
+    .back-link {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        min-height: 38px;
+    }
+    
     /* FIXED: Smaller mobile screens */
     .flashcard-container {
-        height: 450px;
-        min-height: 450px;
+        height: 500px; /* Maximum height for content */
+        min-height: 500px;
         margin: 10px auto;
     }
     
@@ -552,11 +583,6 @@ button:disabled {
         margin-top: 15px;
     }
     
-    .back-link {
-        padding: 8px 14px;
-        font-size: 0.85rem;
-    }
-    
     .hint {
         font-size: 0.75rem;
         margin-top: 8px;
@@ -573,10 +599,6 @@ button:disabled {
         padding: 10px;
     }
     
-    h1 {
-        font-size: 1.2rem;
-    }
-    
     .stats {
         padding: 6px 10px;
     }
@@ -590,8 +612,8 @@ button:disabled {
     }
     
     .flashcard-container {
-        height: 420px;
-        min-height: 420px;
+        height: 480px;
+        min-height: 480px;
     }
     
     .flashcard-front, .flashcard-back {
