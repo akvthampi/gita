@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhagavad Gita - Spiritual Wisdom Through Flashcards</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Welcome Overlay Styles */
+        .welcome-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #8B4513 0%, #2F4F4F 100%);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .welcome-overlay.hidden {
+            display: none;
+        }
+
+        .welcome-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 3px solid #D4AF37;
+        }
+
+        .welcome-content {
+            text-align: center;
+        }
+
+        .welcome-icon {
+            font-size: 4rem;
+            color: #8B4513;
+            margin-bottom: 20px;
+        }
+
+        .welcome-content h1 {
+            color: #2F4F4F;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .welcome-text {
+            text-align: left;
+            margin-bottom: 35px;
+            line-height: 1.7;
+            color: #444;
+            font-size: 1.1rem;
+        }
+
+        .welcome-text p {
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .immerse-button {
+            background: linear-gradient(135deg, #8B4513, #D4AF37);
+            color: white;
+            border: none;
+            padding: 18px 35px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.4);
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+
+        .immerse-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(139, 69, 19, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <!-- Welcome Overlay -->
+    <div id="welcomeOverlay" class="welcome-overlay">
+        <div class="welcome-container">
+            <div class="welcome-content">
+                <div class="welcome-icon">
+                    <i class="fas fa-om"></i>
+                </div>
+                <h1>Welcome to Bhagavad Gita Wisdom</h1>
+                <div class="welcome-text">
+                    <p>The Bhagavad Gita is not merely a book; it is a living dialogue between Lord Krishna and Arjuna that occurred on the battlefield of Kurukshetra. It represents the eternal wisdom of Sanatana Dharma, offering profound insights into life, duty, and spirituality.</p>
+                    
+                    <p>This sacred text contains 700 verses across 18 chapters, covering essential spiritual concepts including Dharma (righteousness), Karma (action), Bhakti (devotion), Jnana (knowledge), and Moksha (liberation). It serves as a practical guide for navigating life's challenges while maintaining spiritual equilibrium.</p>
+                    
+                    <p>Through this flashcard program, we aim to make the timeless wisdom of the Gita accessible and memorable. Each card presents key verses with their meanings, helping you internalize these eternal truths systematically. Whether you're new to the Gita or seeking deeper understanding, this tool will support your spiritual journey.</p>
+                </div>
+                <button id="enterSite" class="immerse-button">
+                    Immerse Yourself in the Bhagavad Gita
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main App Content -->
+    <div class="app-container" id="mainApp">
+        <div class="content-header">
+            <div class="header-left">
+                <div class="main-title">Bhagavad Gita</div>
+                <div class="main-subtitle">Divine wisdom through flashcards</div>
+            </div>
+            <div class="header-right">
+                <img src="cover.png" alt="Bhagavad Gita Logo" class="header-logo">
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="welcome-section">
+                <div class="stats-section">
+                    <div class="stat-card"><div class="stat-number">18</div><div class="stat-label">Chapters</div></div>
+                    <div class="stat-card"><div class="stat-number">700+</div><div class="stat-label">Verses</div></div>
+                    <div class="stat-card"><div class="stat-number">100%</div><div class="stat-label">Wisdom</div></div>
+                    <div class="stat-card"><div class="stat-number">Free</div><div class="stat-label">Access</div></div>
+                </div>
+            </div>
+
+            <div id="resume-container" style="display: none;">
+                <a href="#" id="resume-link" class="resume-button-simple">
+                    <div class="resume-simple-content">
+                        <div class="resume-icon">↻</div>
+                        <div class="resume-text">
+                            <div class="resume-title">Welcome back!</div>
+                            <div class="resume-subtitle">Continue your spiritual journey</div>
+                        </div>
+                        <div class="resume-arrow">→</div>
+                    </div>
+                </a>
+            </div>
+
+            <h2 class="section-title">Select a chapter to begin your spiritual journey</h2>
+            
+            <div class="chapters-grid" id="chaptersGrid">
+                <!-- Chapters will be loaded here -->
+            </div>
+            
+            <div class="published-section">
+                <h2 class="published-title">Our Other Collections</h2>
+                <p class="published-subtitle">Explore our other educational collections to expand your knowledge</p>
+                
+                <div class="published-grid">
+                    <div class="published-card" data-url="https://gst.flashlearn.win/">
+                        <div class="published-title-text">Goods and Services Tax</div>
+                        <div class="published-desc">Complete GST concepts and procedures</div>
+                    </div>
+                    <div class="published-card" data-url="https://constitution.flashlearn.win/">
+                        <div class="published-title-text">Indian Constitution</div>
+                        <div class="published-desc">25 chapters with 4100+ flashcards</div>
+                    </div>
+                    <div class="published-card" data-url="https://hrm.flashlearn.win/">
+                        <div class="published-title-text">Human Resource Management</div>
+                        <div class="published-desc">Comprehensive HRM study material</div>
+                    </div>
+                    <div class="published-card" data-url="https://itax.flashlearn.win/">
+                        <div class="published-title-text">Income Tax</div>
+                        <div class="published-desc">Complete income tax concepts</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="coming-soon-section">
+                <h2 class="coming-soon-title">More Spiritual Texts Coming Soon</h2>
+                <p class="coming-soon-subtitle">Expand your spiritual knowledge with our upcoming collections</p>
+                
+                <div class="subjects-grid">
+                    <div class="subject-card">
+                        <div class="subject-title">Upanishads</div>
+                        <div class="subject-desc">Ancient wisdom texts of spiritual knowledge</div>
+                    </div>
+                    <div class="subject-card">
+                        <div class="subject-title">Ramayana</div>
+                        <div class="subject-desc">The epic journey of Lord Rama</div>
+                    </div>
+                    <div class="subject-card">
+                        <div class="subject-title">Mahabharata</div>
+                        <div class="subject-desc">The great epic of ancient India</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <a href="https://flashlearn.win" class="floating-home-btn" title="Go to FlashLearn Homepage">
+            <i class="fas fa-home"></i>
+        </a>
+        
+        <footer>
+            <p>Made with <i class="fas fa-heart heart"></i> by Anil Kumar VT | Dedicated to Spiritual Enlightenment, Completely Ad-Free.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Simple and direct approach
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded - starting initialization');
+            
+            // Chapter data
+            const chapters = [
+                { file: "flashcard_template.html?chap=01", name: "Chapter 1: Arjuna's Despondency", icon: "fas fa-sad-tear", description: "Arjuna Vishada Yoga - The Yoga of Arjuna's Dejection", versesCount: 47 },
+                { file: "flashcard_template.html?chap=02", name: "Chapter 2: The Yoga of Knowledge", icon: "fas fa-brain", description: "Sankhya Yoga - The Yoga of Analytical Knowledge", versesCount: 72 },
+                { file: "flashcard_template.html?chap=03", name: "Chapter 3: The Yoga of Action", icon: "fas fa-hands-helping", description: "Karma Yoga - The Yoga of Selfless Action", versesCount: 43 },
+                { file: "flashcard_template.html?chap=04", name: "Chapter 4: Divine Knowledge Yoga", icon: "fas fa-book-open", description: "Jnana Karma Sanyasa Yoga - Yoga of Knowledge and Renunciation", versesCount: 42 },
+                { file: "flashcard_template.html?chap=05", name: "Chapter 5: The Yoga of Renunciation", icon: "fas fa-pray", description: "Karma Sanyasa Yoga - Yoga of Renunciation of Action", versesCount: 29 },
+                { file: "flashcard_template.html?chap=06", name: "Chapter 6: The Yoga of Meditation", icon: "fas fa-spa", description: "Dhyana Yoga - The Yoga of Meditation", versesCount: 47 },
+                { file: "flashcard_template.html?chap=07", name: "Chapter 7: Knowledge & Realization", icon: "fas fa-lightbulb", description: "Jnana Vijnana Yoga - Yoga of Knowledge and Realization", versesCount: 30 },
+                { file: "flashcard_template.html?chap=08", name: "Chapter 8: The Imperishable Brahman", icon: "fas fa-infinity", description: "Akshara Brahma Yoga - Yoga of the Imperishable Absolute", versesCount: 28 },
+                { file: "flashcard_template.html?chap=09", name: "Chapter 9: The Royal Secret", icon: "fas fa-crown", description: "Raja Vidya Raja Guhya Yoga - Yoga of Royal Knowledge and Secret", versesCount: 34 },
+                { file: "flashcard_template.html?chap=10", name: "Chapter 10: The Divine Glories", icon: "fas fa-star", description: "Vibhuti Yoga - Yoga of Divine Glories", versesCount: 42 },
+                { file: "flashcard_template.html?chap=11", name: "Chapter 11: The Universal Form", icon: "fas fa-eye", description: "Vishwaroopa Darshana Yoga - Yoga of the Vision of Universal Form", versesCount: 55 },
+                { file: "flashcard_template.html?chap=12", name: "Chapter 12: The Yoga of Devotion", icon: "fas fa-hands-praying", description: "Bhakti Yoga - The Yoga of Devotion", versesCount: 20 },
+                { file: "flashcard_template.html?chap=13", name: "Chapter 13: Field and Knower", icon: "fas fa-seedling", description: "Kshetra Kshetragna Vibhaga Yoga - Yoga of Field and Knower", versesCount: 34 },
+                { file: "flashcard_template.html?chap=14", name: "Chapter 14: The Three Gunas", icon: "fas fa-balance-scale", description: "Gunatraya Vibhaga Yoga - Yoga of the Three Modes of Material Nature", versesCount: 27 },
+                { file: "flashcard_template.html?chap=15", name: "Chapter 15: The Supreme Person", icon: "fas fa-mountain", description: "Purushottama Yoga - Yoga of the Supreme Person", versesCount: 20 },
+                { file: "flashcard_template.html?chap=16", name: "Chapter 16: Divine & Demonic", icon: "fas fa-yin-yang", description: "Daivasura Sampad Vibhaga Yoga - Yoga of Divine and Demonic Natures", versesCount: 24 },
+                { file: "flashcard_template.html?chap=17", name: "Chapter 17: Threefold Faith", icon: "fas fa-om", description: "Shraddhatraya Vibhaga Yoga - Yoga of Threefold Faith", versesCount: 28 },
+                { file: "flashcard_template.html?chap=18", name: "Chapter 18: Liberation", icon: "fas fa-dove", description: "Moksha Sanyasa Yoga - Yoga of Liberation through Renunciation", versesCount: 78 }
+            ];
+
+            // Render chapters immediately
+            function renderChapters() {
+                const chaptersGrid = document.getElementById('chaptersGrid');
+                if (!chaptersGrid) {
+                    console.error('ERROR: chaptersGrid element not found!');
+                    return;
+                }
+                
+                console.log('Rendering chapters...');
+                let chaptersHTML = '';
+                
+                chapters.forEach((chapter, index) => {
+                    const chapterNumber = String(index + 1).padStart(2, '0');
+                    const chapterFile = `flashcard_template.html?chap=${chapterNumber}`;
+                    
+                    chaptersHTML += `
+                        <div class="chapter-card" data-file="${chapterFile}">
+                            <div class="chapter-icon">
+                                <i class="${chapter.icon}"></i>
+                            </div>
+                            <div class="chapter-title">${chapter.name}</div>
+                            <div class="chapter-desc">${chapter.description}</div>
+                        </div>
+                    `;
+                });
+                
+                chaptersGrid.innerHTML = chaptersHTML;
+                console.log('Chapters rendered successfully!');
+                
+                // Add click events
+                document.querySelectorAll('.chapter-card').forEach(card => {
+                    card.addEventListener('click', function() {
+                        const file = this.getAttribute('data-file');
+                        window.location.href = file;
+                    });
+                });
+            }
+
+            // Welcome screen logic
+            const welcomeOverlay = document.getElementById('welcomeOverlay');
+            const mainApp = document.getElementById('mainApp');
+            const enterButton = document.getElementById('enterSite');
+
+            // Check if user has seen welcome before
+            const hasSeenWelcome = localStorage.getItem('bg_welcome_seen');
+            
+            if (hasSeenWelcome) {
+                console.log('User has seen welcome before - hiding welcome screen');
+                welcomeOverlay.style.display = 'none';
+                mainApp.style.display = 'block';
+                renderChapters();
+            } else {
+                console.log('First time user - showing welcome screen');
+                welcomeOverlay.style.display = 'flex';
+                mainApp.style.display = 'none';
+                
+                // Handle enter button click
+                enterButton.addEventListener('click', function() {
+                    console.log('Enter button clicked');
+                    welcomeOverlay.style.display = 'none';
+                    mainApp.style.display = 'block';
+                    localStorage.setItem('bg_welcome_seen', 'true');
+                    renderChapters();
+                });
+            }
+
+            // Setup published cards
+            document.querySelectorAll('.published-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const url = this.getAttribute('data-url');
+                    window.open(url, '_blank');
+                });
+            });
+
+            console.log('Initialization complete');
+        });
+    </script>
+</body>
+</html>

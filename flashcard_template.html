@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bhagavad Gita Flashcards - Chapter Loading...</title>
+    
+    <link rel="stylesheet" href="chapterstyle.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Custom colors for this chapter page to match Bhagavad Gita theme */
+        :root {
+            --primary: #8B4513; 
+            --primary-dark: #654321;
+            --secondary: #D4AF37;
+            --accent: #228B22;
+            --light: #FFF8DC;
+            --dark: #2F4F4F; 
+            --gray: #696969;
+        }
+
+        .flashcard-front { background: linear-gradient(135deg, #2F4F4F, #36454F); color: white; }
+        .flashcard-back { background: linear-gradient(135deg, #8B4513, #654321); color: white; }
+        .back-link { background: rgba(139, 69, 19, 0.1); }
+        .back-link:hover { background: rgba(139, 69, 19, 0.15); }
+
+        /* Improved flashcard content layout */
+        .shloka-container {
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .sanskrit-shloka {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.6;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .shloka-meaning {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 15px;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+        
+        .question-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .answer-text {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* Controls styling */
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+            gap: 10px;
+            width: 100%;
+        }
+        .controls > button {
+            flex: 1;
+            min-width: 0;
+            max-width: none;
+        }
+        .btn-previous, .btn-next {
+            max-width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="chapterTitle">Loading Chapter...</h1>            
+            <div class="chapter-info" id="chapterInfo">Please wait.</div>
+            <a href="index.html" class="back-link">← Back to Chapters</a>
+        </header>
+        
+        <div class="stats">
+            <div class="stat-box"><div class="stat-value" id="currentCard">0</div><div class="stat-label">Current Verse</div></div>
+            <div class="stat-box"><div class="stat-value" id="totalCards">0</div><div class="stat-label">Total Verses</div></div>
+            <div class="stat-box"><div class="stat-value" id="completionRate">0%</div><div class="stat-label">Completion</div></div>
+        </div>
+        
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        
+        <div class="flashcard-container">
+            <div class="flashcard" id="flashcard" onclick="flipCard()">
+                <div class="flashcard-front">
+                    <div class="shloka-container">
+                        <div class="sanskrit-shloka" id="sanskritShloka"></div>
+                        <div class="shloka-meaning" id="shlokaMeaning"></div>
+                    </div>
+                    <div class="question-text" id="questionText"></div>
+                    <div class="hint">Click to reveal answer</div>
+                </div>
+                <div class="flashcard-back">
+                    <div class="answer-text" id="answerText"></div>
+                    <div class="concept" id="concept"></div>
+                    <div class="hint">Click to see verse</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <button class="btn-previous" onclick="previousCard()" id="prevBtn">← Previous</button>
+            <button class="btn-shuffle" onclick="shuffleCards()">🔀 Shuffle</button>
+            <button class="btn-reset" onclick="resetCards()">↺ Reset</button>
+            <button class="btn-next" onclick="nextCard()" id="nextBtn">Next →</button>
+        </div>
+        
+        <div class="info-panel">
+            <p><strong>Tip:</strong> Click on the card to flip between Sanskrit verse and answer. Use keyboard arrows for navigation.</p>
+        </div>
+    </div>
+
+    <script>
+        // Define PROJECT_ID_GLOBAL for flashcards.js
+        const PROJECT_ID_GLOBAL = 'BG_';
+
+        function getChapterID() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('chap'); 
+        }
+
+        const chapterID = getChapterID();
+        if (chapterID) {
+            const script = document.createElement('script');
+            script.src = 'bg_chap_' + chapterID + '.js';
+            
+            script.onload = function() {
+                if (typeof chapterMetadata !== 'undefined') {
+                    document.getElementById('chapterTitle').textContent = chapterMetadata.title;
+                    document.getElementById('chapterInfo').textContent = chapterMetadata.info;
+                    document.title = chapterMetadata.title;
+                } else {
+                    document.getElementById('chapterTitle').textContent = "Error: Data File Missing!";
+                    document.getElementById('chapterInfo').textContent = "Please ensure bg_chap_" + chapterID + ".js exists and is formatted correctly.";
+                    return; 
+                }
+
+                const logicScript = document.createElement('script');
+                logicScript.src = 'flashcards.js';
+                
+                logicScript.onload = function() {
+                    if (typeof initializeFlashcards === 'function') {
+                        initializeFlashcards();
+                    }
+                };
+                document.body.appendChild(logicScript);
+            };
+            
+            script.onerror = function() {
+                document.getElementById('chapterTitle').textContent = "Error: Data File Missing!";
+                document.getElementById('chapterInfo').textContent = "Could not load bg_chap_" + chapterID + ".js. Check the file name and path.";
+            };
+            document.head.appendChild(script);
+
+        } else {
+            document.getElementById('chapterTitle').textContent = "Error: Chapter not selected.";
+            document.getElementById('chapterInfo').textContent = "Return to index to select a chapter.";
+        }
+        
+    </script>
+</body>
+</html>
