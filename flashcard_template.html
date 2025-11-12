@@ -98,17 +98,23 @@
         <div class="flashcard-container">
             <div class="flashcard" id="flashcard" onclick="flipCard()">
                 <div class="flashcard-front">
-                    <div class="shloka-container">
-                        <div class="sanskrit-shloka" id="sanskritShloka"></div>
-                        <div class="shloka-meaning" id="shlokaMeaning"></div>
+                    <div class="flashcard-content">
+                        <div class="shloka-container">
+                            <div class="scrollable-shloka">
+                                <div class="sanskrit-shloka" id="sanskritShloka"></div>
+                                <div class="shloka-meaning" id="shlokaMeaning"></div>
+                            </div>
+                            <div class="question-text" id="questionText"></div>
+                        </div>
+                        <div class="hint">Click to reveal answer</div>
                     </div>
-                    <div class="question-text" id="questionText"></div>
-                    <div class="hint">Click to reveal answer</div>
                 </div>
                 <div class="flashcard-back">
-                    <div class="answer-text" id="answerText"></div>
-                    <div class="concept" id="concept"></div>
-                    <div class="hint">Click to see verse</div>
+                    <div class="flashcard-content">
+                        <div class="answer-text" id="answerText"></div>
+                        <div class="concept" id="concept"></div>
+                        <div class="hint">Click to see verse</div>
+                    </div>
                 </div>
             </div>
         </div>
