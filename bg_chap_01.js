@@ -1,7 +1,7 @@
 // --- bg_chap_01.js ---
 const chapterMetadata = {
     title: "Chapter 1: Arjuna's Despondency",
-    info: "Arjuna Vishada Yoga - The Yoga of Arjuna's Dejection (47 verses)"
+    info: "Arjuna Vishada Yoga - The Yoga of Arjuna's Dejection"
 };
 const flashcards = [
     { 

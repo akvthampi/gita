@@ -1,7 +1,7 @@
 // --- bg_chap_12.js ---
 const chapterMetadata = {
     title: "Chapter 12: The Yoga of Devotion",
-    info: "Bhakti Yoga - Yoga of Devotional Service (20 verses)"
+    info: "Bhakti Yoga - Yoga of Devotional Service"
 };
 const flashcards = [
     { 

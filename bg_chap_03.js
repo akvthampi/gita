@@ -1,7 +1,7 @@
 // --- bg_chap_03.js ---
 const chapterMetadata = {
     title: "Chapter 3: The Yoga of Action",
-    info: "Karma Yoga - The Yoga of Selfless Action (43 verses)"
+    info: "Karma Yoga - The Yoga of Selfless Action"
 };
 const flashcards = [
     { 

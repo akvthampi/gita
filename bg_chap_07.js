@@ -1,7 +1,7 @@
 // --- bg_chap_07.js ---
 const chapterMetadata = {
     title: "Chapter 7: The Yoga of Knowledge and Realization",
-    info: "Jnana Vijnana Yoga - Yoga of Knowledge and Realization (30 verses)"
+    info: "Jnana Vijnana Yoga - Yoga of Knowledge and Realization"
 };
 const flashcards = [
     { 

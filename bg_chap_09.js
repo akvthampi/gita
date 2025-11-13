@@ -1,7 +1,7 @@
 // --- bg_chap_09.js ---
 const chapterMetadata = {
     title: "Chapter 9: The Yoga of the Royal Secret",
-    info: "Raja Vidya Raja Guhya Yoga - Yoga of the Royal Secret and Supreme Science (34 verses)"
+    info: "Raja Vidya Raja Guhya Yoga - Yoga of the Royal Secret and Supreme Science"
 };
 const flashcards = [
     { 

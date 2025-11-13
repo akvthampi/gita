@@ -1,7 +1,7 @@
 // --- bg_chap_10.js ---
 const chapterMetadata = {
     title: "Chapter 10: The Yoga of Divine Glories",
-    info: "Vibhuti Yoga - Yoga of Divine Glories and Manifestations (42 verses)"
+    info: "Vibhuti Yoga - Yoga of Divine Glories and Manifestations"
 };
 const flashcards = [
     { 

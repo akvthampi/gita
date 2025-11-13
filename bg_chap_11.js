@@ -1,7 +1,7 @@
 // --- bg_chap_11.js ---
 const chapterMetadata = {
     title: "Chapter 11: The Yoga of the Cosmic Form",
-    info: "Vishvarupa Darshana Yoga - Yoga of the Vision of the Universal Form (55 verses)"
+    info: "Vishvarupa Darshana Yoga - Yoga of the Vision of the Universal Form"
 };
 const flashcards = [
     { 

@@ -1,7 +1,7 @@
 // --- bg_chap_15.js ---
 const chapterMetadata = {
     title: "Chapter 15: The Yoga of the Supreme Person",
-    info: "Purushottama Yoga - Yoga of the Supreme Person (20 verses)"
+    info: "Purushottama Yoga - Yoga of the Supreme Person"
 };
 const flashcards = [
     { 

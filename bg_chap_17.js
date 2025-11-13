@@ -1,7 +1,7 @@
 // --- bg_chap_17.js ---
 const chapterMetadata = {
     title: "Chapter 17: The Yoga of the Threefold Division of Faith",
-    info: "Shraddha Traya Vibhaga Yoga - Yoga of the Threefold Division of Faith (28 verses)"
+    info: "Shraddha Traya Vibhaga Yoga - Yoga of the Threefold Division of Faith"
 };
 const flashcards = [
     { 

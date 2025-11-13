@@ -1,7 +1,7 @@
 // --- bg_chap_13.js ---
 const chapterMetadata = {
     title: "Chapter 13: The Yoga of Distinguishing the Field and the Knower",
-    info: "Kshetra Kshetrajna Vibhaga Yoga - Yoga of Discrimination Between the Field and Its Knower (35 verses)"
+    info: "Kshetra Kshetrajna Vibhaga Yoga - Yoga of Discrimination Between the Field and Its Knower"
 };
 const flashcards = [
     { 

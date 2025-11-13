@@ -1,7 +1,7 @@
 // --- bg_chap_18.js ---
 const chapterMetadata = {
     title: "Chapter 18: The Yoga of Liberation through Renunciation",
-    info: "Moksha Sanyasa Yoga - Yoga of Liberation through Renunciation (78 verses)"
+    info: "Moksha Sanyasa Yoga - Yoga of Liberation through Renunciation"
 };
 const flashcards = [
     { 

@@ -1,7 +1,7 @@
 // --- bg_chap_14.js ---
 const chapterMetadata = {
     title: "Chapter 14: The Yoga of the Division of the Three Gunas",
-    info: "Gunatraya Vibhaga Yoga - Yoga of the Division of the Three Modes of Material Nature (27 verses)"
+    info: "Gunatraya Vibhaga Yoga - Yoga of the Division of the Three Modes of Material Nature"
 };
 const flashcards = [
     { 

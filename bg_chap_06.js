@@ -1,7 +1,7 @@
 // --- bg_chap_06.js ---
 const chapterMetadata = {
     title: "Chapter 6: The Yoga of Meditation",
-    info: "Dhyana Yoga / Atma Samyama Yoga - Yoga of Meditation and Self-Control (47 verses)"
+    info: "Dhyana Yoga / Atma Samyama Yoga - Yoga of Meditation and Self-Control"
 };
 const flashcards = [
     { 

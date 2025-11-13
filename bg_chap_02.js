@@ -1,7 +1,7 @@
 // --- bg_chap_02.js ---
 const chapterMetadata = {
     title: "Chapter 2: The Yoga of Knowledge",
-    info: "Sankhya Yoga - The Yoga of Analytical Knowledge (72 verses)"
+    info: "Sankhya Yoga - The Yoga of Analytical Knowledge"
 };
 const flashcards = [
     { 

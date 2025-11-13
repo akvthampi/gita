@@ -1,7 +1,7 @@
 // --- bg_chap_04.js ---
 const chapterMetadata = {
     title: "Chapter 4: The Yoga of Knowledge and Renunciation",
-    info: "Jnana Karma Sanyasa Yoga - Yoga of Knowledge and Renunciation of Action (42 verses)"
+    info: "Jnana Karma Sanyasa Yoga - Yoga of Knowledge and Renunciation of Action"
 };
 const flashcards = [
     { 

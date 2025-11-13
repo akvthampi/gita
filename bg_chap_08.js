@@ -1,7 +1,7 @@
 // --- bg_chap_08.js ---
 const chapterMetadata = {
     title: "Chapter 8: The Yoga of the Imperishable Brahman",
-    info: "Akshara Brahma Yoga - Yoga of the Imperishable Absolute (28 verses)"
+    info: "Akshara Brahma Yoga - Yoga of the Imperishable Absolute"
 };
 const flashcards = [
     { 

@@ -1,7 +1,7 @@
 // --- bg_chap_16.js ---
 const chapterMetadata = {
     title: "Chapter 16: The Yoga of Division Between the Divine and Demonic Natures",
-    info: "Daivasura Sampad Vibhaga Yoga - Yoga of Division Between Divine and Demonic Qualities (24 verses)"
+    info: "Daivasura Sampad Vibhaga Yoga - Yoga of Division Between Divine and Demonic Qualities"
 };
 
 const flashcards = [

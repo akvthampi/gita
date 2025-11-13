@@ -1,7 +1,7 @@
 // --- bg_chap_05.js ---
 const chapterMetadata = {
     title: "Chapter 5: The Yoga of Renunciation",
-    info: "Karma Sanyasa Yoga - Yoga of Renunciation of Action (29 verses)"
+    info: "Karma Sanyasa Yoga - Yoga of Renunciation of Action"
 };
 const flashcards = [
     { 
